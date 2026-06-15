@@ -1,0 +1,145 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "install-clerk-nextjs",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && npm.cmd install @clerk/nextjs"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "install-clerk-ui",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && npm.cmd install @clerk/ui"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "clerk-init-help",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && npx.cmd --yes clerk@latest init --help"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "clerk-init-existing-project",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && npx.cmd --yes clerk@latest init --app app_3F4MKDAU4zcykOPoy7DwOC5rMKL --no-skills"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "clerk-doctor-existing-project",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && npx.cmd --yes clerk@latest doctor"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "clerk-env-pull",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && npx.cmd --yes clerk@latest env pull"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "clerk-doctor-final",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && npx.cmd --yes clerk@latest doctor"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "dev-linkshortener",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && npm.cmd run dev"
+			],
+			"isBackground": true
+		},
+		{
+			"label": "install-runtime-db-packages",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && npm.cmd i drizzle-orm @neondatabase/serverless dotenv"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "install-dev-db-packages",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && npm.cmd i -D drizzle-kit tsx"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "dev-after-clerk-button-fix",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && npm.cmd run dev"
+			],
+			"isBackground": true
+		},
+		{
+			"label": "check-next-dev-log",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && powershell -NoProfile -Command \"Get-Content '.next\\dev\\logs\\next-development.log' -Tail 120\""
+			],
+			"isBackground": false
+		},
+		{
+			"label": "stop-existing-next-dev",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"taskkill /PID 16276 /F"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "dev-clean-after-clerk-fix",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && npm.cmd run dev"
+			],
+			"isBackground": true
+		}
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "install-clerk-nextjs",
+			"type": "shell",
+			"command": "npm.cmd",
+			"args": [
+				"install",
+				"@clerk/nextjs"
+			],
+			"isBackground": false
+		}
+	]
+}
