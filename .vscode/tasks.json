@@ -140,6 +140,221 @@
 				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && npm.cmd run dev"
 			],
 			"isBackground": true
+		},
+		{
+			"label": "check-node-tools-task",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && npm.cmd -v && node -v"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "check-neon-api-env-task",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && powershell -NoProfile -Command \"$has=[bool]$env:NEON_API_KEY; if($has){'NEON_API_KEY=present'}else{'NEON_API_KEY=missing'}; $has2=[bool]$env:DATABASE_URL; if($has2){'DATABASE_URL=present'}else{'DATABASE_URL=missing'}\""
+			],
+			"isBackground": false
+		},
+		{
+			"label": "check-neon-env-cmd-task",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/v",
+				"/c",
+				"if defined NEON_API_KEY (echo NEON_API_KEY=present) else (echo NEON_API_KEY=missing) & if defined DATABASE_URL (echo DATABASE_URL=present) else (echo DATABASE_URL=missing)"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "npm-view-neonctl-task",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"npm.cmd view neonctl version"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "neonctl-projects-list-task",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && npx.cmd --yes neonctl projects list"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "neonctl-help-task",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && npx.cmd --yes neonctl --help"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "npx-cowsay-task",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"npx.cmd --yes cowsay hello-neon"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "neonctl-version-task",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/v",
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && npx.cmd --yes neonctl --version & echo EXITCODE:!errorlevel!"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "clerk-check-user-id-task",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && set DOTENV_CONFIG_PATH=.env && node -r dotenv/config -e \"const userId='user_3F9VikbBm4jYFt4yibbxi8t4A74'; const key=process.env.CLERK_SECRET_KEY; if(!key){console.log('found=unknown'); console.log('reason=missing_clerk_secret_key'); process.exit(2);} fetch('https://api.clerk.com/v1/users/'+userId,{headers:{Authorization:'Bearer '+key}}).then(async r=>{ if(r.ok){const d=await r.json(); console.log('found=true'); console.log('id='+d.id); console.log('username='+(d.username??'')); console.log('email_count='+(Array.isArray(d.email_addresses)?d.email_addresses.length:0)); console.log('created_at='+d.created_at);} else if(r.status===404){console.log('found=false');} else {console.log('found=unknown'); console.log('status='+r.status); const t=await r.text(); console.log('body='+t.slice(0,200)); process.exit(1);} }).catch(e=>{console.log('found=unknown'); console.log('error='+e.message); process.exit(1);});\""
+			],
+			"isBackground": false
+		},
+		{
+			"label": "clerk-check-user-id-task-2",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && set DOTENV_CONFIG_PATH=.env && node -r dotenv/config -e \"const userId=\\\"user_3F9VikbBm4jYFt4yibbxi8t4A74\\\"; const key=process.env.CLERK_SECRET_KEY; if(!key){console.log(\\\"found=unknown\\\"); console.log(\\\"reason=missing_clerk_secret_key\\\"); process.exit(2);} fetch(\\\"https://api.clerk.com/v1/users/\\\"+userId,{headers:{Authorization:\\\"Bearer \\\"+key}}).then(async r=>{ if(r.ok){const d=await r.json(); console.log(\\\"found=true\\\"); console.log(\\\"id=\\\"+d.id); console.log(\\\"username=\\\"+(d.username??\\\"\\\")); console.log(\\\"email_count=\\\"+(Array.isArray(d.email_addresses)?d.email_addresses.length:0)); console.log(\\\"created_at=\\\"+d.created_at);} else if(r.status===404){console.log(\\\"found=false\\\");} else {console.log(\\\"found=unknown\\\"); console.log(\\\"status=\\\"+r.status); const t=await r.text(); console.log(\\\"body=\\\"+t.slice(0,200)); process.exit(1);} }).catch(e=>{console.log(\\\"found=unknown\\\"); console.log(\\\"error=\\\"+e.message); process.exit(1);});\""
+			],
+			"isBackground": false
+		},
+		{
+			"label": "node-inline-smoke-task",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && node -p \"1+1\""
+			],
+			"isBackground": false
+		},
+		{
+			"label": "clerk-check-user-id-task-3",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && set DOTENV_CONFIG_PATH=.env && node -r dotenv/config -e \"var userId=\\\"user_3F9VikbBm4jYFt4yibbxi8t4A74\\\"; var key=process.env.CLERK_SECRET_KEY; if(!key){console.log(\\\"found=unknown\\\"); console.log(\\\"reason=missing_clerk_secret_key\\\"); process.exit(2);} fetch(\\\"https://api.clerk.com/v1/users/\\\"+userId,{headers:{Authorization:\\\"Bearer \\\"+key}}).then(function(r){ if(r.status===404){console.log(\\\"found=false\\\"); return null;} if(!r.ok){console.log(\\\"found=unknown\\\"); console.log(\\\"status=\\\"+r.status); return r.text().then(function(t){console.log(\\\"body=\\\"+t.slice(0,200)); process.exit(1);});} return r.json().then(function(d){console.log(\\\"found=true\\\"); console.log(\\\"id=\\\"+d.id); var ec=Array.isArray(d.email_addresses)?d.email_addresses.length:0; console.log(\\\"email_count=\\\"+ec); console.log(\\\"created_at=\\\"+d.created_at);});}).catch(function(e){console.log(\\\"found=unknown\\\"); console.log(\\\"error=\\\"+e.message); process.exit(1);});\""
+			],
+			"isBackground": false
+		},
+		{
+			"label": "node-inline-parse-diagnostic-task",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && node -e \"var x=1;console.log(x)\""
+			],
+			"isBackground": false
+		},
+		{
+			"label": "node-inline-simple-e-task",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && node -e \"console.log(1)\""
+			],
+			"isBackground": false
+		},
+		{
+			"label": "node-inline-semicolon-task",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && node -e \"console.log(1);console.log(2)\""
+			],
+			"isBackground": false
+		},
+		{
+			"label": "powershell-task-smoke",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"$PSVersionTable.PSVersion.ToString()"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "powershell-task-echo",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"Write-Output 'hello-ps'"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "clerk-check-user-powershell-task",
+			"type": "shell",
+			"command": "powershell",
+			"args": [
+				"-NoProfile",
+				"-Command",
+				"$project=\"c:\\VS Code\\project01\\linkshortenerproject\";$envPath=Join-Path $project \".env\";if(!(Test-Path $envPath)){Write-Output \"found=unknown\";Write-Output \"reason=env_missing\";exit 2};$line=Get-Content $envPath | Where-Object { $_ -like \"CLERK_SECRET_KEY=*\" } | Select-Object -First 1;if(-not $line){Write-Output \"found=unknown\";Write-Output \"reason=missing_clerk_secret_key\";exit 2};$key=$line.Substring(17).Trim().Trim('\"');$userId=\"user_3F9VikbBm4jYFt4yibbxi8t4A74\";$headers=@{Authorization=\"Bearer $key\"};try{$resp=Invoke-WebRequest -Uri (\"https://api.clerk.com/v1/users/\"+$userId) -Headers $headers -Method Get -UseBasicParsing -ErrorAction Stop;$data=$resp.Content|ConvertFrom-Json;Write-Output \"found=true\";Write-Output (\"id=\"+$data.id);$count=0;if($null -ne $data.email_addresses){$count=$data.email_addresses.Count};Write-Output (\"email_count=\"+$count);Write-Output (\"created_at=\"+$data.created_at)}catch{$status=$null;if($_.Exception.Response){$status=$_.Exception.Response.StatusCode.value__};if($status -eq 404){Write-Output \"found=false\";exit 0};Write-Output \"found=unknown\";if($status){Write-Output (\"status=\"+$status)};Write-Output (\"error=\"+$_.Exception.Message);exit 1}"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "run-clerk-user-check-script",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && node scripts\\check-clerk-user.mjs user_3F9VikbBm4jYFt4yibbxi8t4A74"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "seed-example-links-task",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\\linkshortenerproject\" && npm.cmd run db:seed:example-links"
+			],
+			"isBackground": false
+		},
+		{
+			"label": "git-status-after-seed-task",
+			"type": "shell",
+			"command": "cmd",
+			"args": [
+				"/c",
+				"cd /d \"c:\\VS Code\\project01\" && git status --short"
+			],
+			"isBackground": false
 		}
 	]
 }

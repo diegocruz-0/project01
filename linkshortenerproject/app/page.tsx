@@ -119,10 +119,10 @@ export default async function Home() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <SignUpButton mode="modal">
+            <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
               <Button size="lg">Start shortening links</Button>
             </SignUpButton>
-            <SignInButton mode="modal">
+            <SignInButton mode="modal" forceRedirectUrl="/dashboard">
               <Button size="lg" variant="outline">
                 Sign in to continue
               </Button>
